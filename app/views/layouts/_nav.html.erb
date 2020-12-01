@@ -5,7 +5,7 @@
             <li>Sign Up</li>
             <li>Log In</li>
         <% else%>
-            <li>Log Out</li>
+            <li> <%=link_to 'logout', destroy_user_session_path, method: 'delete' %></li>
         <% end %>
     </ul>
 
