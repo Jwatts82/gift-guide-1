@@ -1,11 +1,11 @@
 <nav>
     <ul>
-        <li>Home</li>
+        <li><%= link_to 'Home', root_path %></li>
         <% if !user_signed_in?%>
-            <li>Sign Up</li>
-            <li>Log In</li>
+            <li><%= link_to 'Signup', new_user_registration_path %></li>
+            <li><%= link_to 'Login', new_user_session_path %></li>
         <% else%>
-            <li> <%=link_to 'logout', destroy_user_session_path, method: 'delete' %></li>
+            <li> <%= link_to 'logout', destroy_user_session_path, method: 'delete' %></li>
         <% end %>
     </ul>
 
