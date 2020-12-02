@@ -10,6 +10,7 @@ Rails.application.routes.draw do
 
   resources :lists do
     resources :gifts 
+  end
 
   resources :gifts
   resources :lists
