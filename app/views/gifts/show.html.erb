@@ -1,0 +1,14 @@
+<h1><%= @gift.name %></h1>
+
+<br>
+<hr>    
+<br>
+
+<h2>Gift: <%= @gift.name %></h2>
+<h2>Store: <%= @gift.store %></h2>
+<h2>Price: $<%= @gift.price %></h2>
+<h2>Comments: <%= @gift.comment %></h2>
+
+<button><%= link_to "Edit Gift", edit_gift_path(@gift) %></button>
+<button><%= link_to "Delete Gift", @gift, method: :delete, data: { confirm: 'Are you sure?' }%></button>
+<button><%= link_to "Home", gifts_path %></button>
