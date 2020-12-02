@@ -1,10 +1,26 @@
 
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th> Gift </th>
+            <th> Store </th>
+            <th> Price </th>
+            <th> Comments </th>
+        </tr>
+    </thead>
 
-<h2>Gift: <%= @gift.name %></h2>
-<h2>Store: <%= @gift.store %></h2>
-<h2>Price: $<%= @gift.price %></h2>
-<h2>Comments: <%= @gift.comment %></h2>
+    <tbody>
+        <tr>
+            <td><%= @gift.name %></td>
+            <td><%= @gift.store %></td>
+            <td><%= @gift.price %></td>
+            <td><%= @gift.comment %></td>
 
-<button><%= link_to "Edit Gift", edit_list_gift_path(@gift) %></button>
+        </tr>
+    </tbody>
+</table>
+<br>
+<br>
+<button><%= link_to "Edit Gift", edit_list_gift_path( @gift.list, @gift) %></button>
 <button><%= link_to "Delete Gift", @gift, method: :delete, data: { confirm: 'Are you sure?' }%></button>
-<button><%= link_to "Back", list_path %></button>
+<button><%= link_to "Back", list_path(@gift.list) %></button>

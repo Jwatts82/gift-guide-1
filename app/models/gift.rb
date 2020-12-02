@@ -5,5 +5,6 @@ class Gift < ApplicationRecord
     accepts_nested_attributes_for :list
 
     validates :name, presence: true
-    
+    validates :store, presence: true
+
 end

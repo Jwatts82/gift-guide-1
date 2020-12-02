@@ -8,6 +8,7 @@ class GiftsController < ApplicationController
 
     def new
         @gift = current_user.gifts.new(list_id: params[:list_id])
+        #binding.pry
     end
 
     def create
