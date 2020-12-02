@@ -1,5 +1,6 @@
 class GiftsController < ApplicationController
     before_action :authentication
+    before_action :set_gift, only[:show, :edit, :update, :destroy]
 
     def index
         @gifts = current_user.gifts
@@ -21,22 +22,33 @@ class GiftsController < ApplicationController
     end
 
     def show
-
     end
     
     def edit
-
     end
 
     def update
-
+        if @gift.update(gift_params)
+            redirect_to gift_path(@gift)
+        else
+            render :edit
+        end
     end
 
-    def delete
-
+    def destroy
+        @gift.destroy
+        redirect_to gifts_path
     end
 
     private
+
+    def set_gift
+        @gift = current_user.gifts.find_by(id: params[:id])
+        if !@gift
+            redirect_to gifts_path
+        end
+    end
+
     #strong params with keys, has many 
     def gift_params
         params.require(:gift).permit(
