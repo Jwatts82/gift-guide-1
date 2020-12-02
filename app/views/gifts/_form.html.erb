@@ -1,39 +1,42 @@
 <%= form_for gift do|f| %>
-
-    <% if gift.list_id.nil? %>
-    <div class= "form-group">
-        <h3>Choose an existing list:</h3>
-        <%= f.collection_select :list_id, List.all, :id, :name, include_blank: true, class: "form-control" %>
-    </div>
-    
+    <div class="mx-auto" style="width: 400px;">
+        <% if gift.list_id.nil? %>
+            <div class= "form-group">
+            <h3>Choose An Existing List:</h3>
+            <%= f.collection_select :list_id, List.all, :id, :name, include_blank: true, class: "form-control" %>
+            </div>
     <br>
-
-        <h3>Or create a new list:</h3>
+            <h3>Or</h3>
+    <br>
+            <h3>Create a New List:</h3>
     
         <%= f.fields_for :list, gift.build_list do |l| %> <br>
             <div class= "form-group">
-                <%= l.label :Name %>
+                <%= l.label :Name %> <br>
                 <%= l.text_field :name %>
             </div>
         <% end %>
     <br>
     <br>
+    <div class="mx-auto" style="width: 200px;">
+        <% else %>
+            <%= f.hidden_field :list_id  %>
+        <%end%>
+        </div>
+        <div class= "form-group">
 
-    <% else %>
-        <%= f.hidden_field :list_id  %>
-    <%end%>
-
-    <div class= "form-group">
-
-        <%= f.label :Gift_Name %> <br>
-        <%= f.text_field :name, class: "form-control" %> <br>
-        <%= f.label :Store %> <br>
-        <%= f.text_field :store, class: "form-control" %> <br>
-        <%= f.label :Price %> <br>
-        <%= f.text_field :price, class: "form-control" %> <br>
-        <%= f.label :Comment %> <br>
-        <%= f.text_area :comment, class: "form-control" %>
+            <%= f.label :Gift_Name %>
+            <%= f.text_field :name, class: "form-control" %>
+            <%= f.label :Store %>
+            <%= f.text_field :store, class: "form-control" %>
+            <%= f.label :Price %>
+            <%= f.text_field :price, class: "form-control" %>
+            <%= f.label :Comment %>
+            <%= f.text_area :comment, class: "form-control" %>
+        </div>
+    
+        <br>
+        <%= f.submit gift.persisted? ? "Update Gift" : "Add Gift" %>
     </div>
-    <br>
-    <%= f.submit gift.persisted? ? "Update Gift" : "Add Gift" %>
 <% end %>
+    

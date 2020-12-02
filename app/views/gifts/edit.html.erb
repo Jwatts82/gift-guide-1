@@ -1,3 +1,10 @@
+ <% if @gift.errors.full_messages.any? %>
+    <% @gift.errors.full_messages.each do |error_message| %>
+        <%= error_message if @gift.errors.full_messages.first == error_message %> <br />
+    <% end %>
+<% end %>
+ 
+ 
  <h1>Update Gift Information</h1>
 
  <%= render partial: "form", locals: {gift: @gift} %>

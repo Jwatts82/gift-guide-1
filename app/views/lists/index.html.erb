@@ -1,10 +1,12 @@
+<br>
 <h2>My Gift Lists</h2>
 <hr>
 <br>
 <% @lists.each do |list| %>
 <ul>
-<h3><%= link_to list.name, list_path(list) %></h3>
+<h4><%= link_to list.name, list_path(list) %></h4>
 </ul>
 <% end %>
-
-<button>><%=  link_to "Create a Gift List", new_gift_path %></button>
+<br>
+<br>
+<button><%=  link_to "Create a Gift List", new_gift_path %></button>

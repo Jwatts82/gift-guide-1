@@ -1,5 +1,6 @@
+<br>
 <h2> Gift List for: <%= @list.name %> </h2>
-
+<br>
 <table class="table table-striped">
     <thead>
         <tr>
@@ -21,4 +22,4 @@
 <br>
 <p><%= link_to "Add a New Gift", new_list_gift_path(@list) %></p>
 
-<button><%= link_to "Home", lists_path %></button>
+<button><%= link_to "My Lists", lists_path %></button>
