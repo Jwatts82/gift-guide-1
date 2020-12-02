@@ -3,7 +3,7 @@
         <% if gift.list_id.nil? %>
             <div class= "form-group">
             <h3>Choose An Existing List:</h3>
-            <%= f.collection_select :list_id, List.all, :id, :name, include_blank: true, class: "form-control" %>
+            <%= f.collection_select :list_id, current_user.lists, :id, :name, include_blank: true, class: "form-control" %>
             </div>
     <br>
             <h3>Or</h3>

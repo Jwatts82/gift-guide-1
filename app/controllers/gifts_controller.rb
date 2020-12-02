@@ -38,7 +38,7 @@ class GiftsController < ApplicationController
 
     def destroy
         @gift.destroy
-        redirect_to lists_path
+        redirect_to list_path(@gift.list)
     end
 
     private
@@ -46,6 +46,7 @@ class GiftsController < ApplicationController
     def set_gift
         @gift = current_user.gifts.find_by(id: params[:id])
         if !@gift
+            flash[:error]  = "I'm sorry, you don't have access to view that page."
             redirect_to gifts_path
         end
     end

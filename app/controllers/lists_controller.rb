@@ -1,4 +1,5 @@
 class ListsController < ApplicationController
+    before_action :authentication
 
     def index
         if user_signed_in?
@@ -14,6 +15,8 @@ class ListsController < ApplicationController
             if @list
                 @gifts = current_user.gifts.where(list_id: params[:id])
                 render :show
+            else
+                redirect_to lists_path
             end
 
         else
