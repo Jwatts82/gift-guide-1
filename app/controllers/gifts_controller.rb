@@ -6,14 +6,15 @@ class GiftsController < ApplicationController
     end
 
     def new
-        @gift = current_user.gifts.new
+        @gift = current_user.gifts.new(list_id: params[:list_id])
     end
 
     def create
+        binding.pry
         @gift = current_user.gifts.build(gift_params)
-        if @gift.valid?
-            @gift.save
-            redirect_to @gift
+        #binding.pry
+        if @gift.save
+            redirect_to gift_path(@gift)
         else
             render :new
         end
@@ -40,9 +41,9 @@ class GiftsController < ApplicationController
     def gift_params
         params.require(:gift).permit(
             :name,
-            :comment,
             :store,
             :price,
+            :comment,
             :list_id,
             list_attributes: [
                 :name
