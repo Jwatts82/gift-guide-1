@@ -1,6 +1,6 @@
 class GiftsController < ApplicationController
     before_action :authentication
-    before_action :set_gift, only[:show, :edit, :update, :destroy]
+    before_action :set_gift, only: [:show, :edit, :update, :destroy]
 
     def index
         @gifts = current_user.gifts
