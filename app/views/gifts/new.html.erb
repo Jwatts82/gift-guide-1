@@ -1,0 +1,15 @@
+<h1>Create a New Gift</h1>
+<br>
+<hr>
+<%= form_for @gift do|f| %>
+    <%= f.label :Name %>
+    <%= f.text_field :name %>
+    <%= f.label :Store %>
+    <%= f.text_field :store %>
+    <%= f.label :Price %>
+    <%= f.text_field :price %>
+    <%= f.label :Comment %>
+    <%= f.text_area :comment %>
+
+    <%= f.submit %>
+<%= end %>
