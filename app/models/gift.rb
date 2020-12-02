@@ -4,4 +4,6 @@ class Gift < ApplicationRecord
 
     accepts_nested_attributes_for :list
 
+    validates :name, presence: true
+    
 end
