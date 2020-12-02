@@ -11,7 +11,7 @@ class GiftsController < ApplicationController
     end
 
     def create
-        binding.pry
+        #binding.pry
         @gift = current_user.gifts.build(gift_params)
         #binding.pry
         if @gift.save
@@ -37,7 +37,7 @@ class GiftsController < ApplicationController
 
     def destroy
         @gift.destroy
-        redirect_to gifts_path
+        redirect_to lists_path
     end
 
     private

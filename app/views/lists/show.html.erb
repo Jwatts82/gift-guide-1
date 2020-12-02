@@ -1,11 +1,24 @@
 <h2> Gift List for: <%= @list.name %> </h2>
 
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th> Gift </th>
+            <th> Purchase Complete </th>
+        </tr>
+    </thead>
 
-<%= @list.gifts.each do |g| %>
-    <%= link_to g.name, gift_path(g) %>
-<% end %>
+    <tbody>
+        <% @list.gifts.each do |g| %>
+            <tr>
+                <td><%= link_to g.name, gift_path(g) %></td>
+                <td><%= check_box("tag", tag.id) %></td>
+            </tr>
+        <% end %>
+    </tbody>
+</table>
 <br>
+<br>
+<p><%= link_to "Add a New Gift", new_gift_path %></p>
 
-
-<p><%= link_to "Add a New Gift", new_list_gift_path(@list) %></p>
-
+<button><%= link_to "Home", lists_path %></button>

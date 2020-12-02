@@ -1,27 +1,27 @@
 <%= form_for @gift do|f| %>
 
     <% if gift.list_id.nil? %>
-    <h3>Choose an existing list:</h3>
-    <%= f.collection_select :list_id, List.all, :id, :name, include_blank: true %>
+        <h3>Choose an existing list:</h3>
+        <%= f.collection_select :list_id, List.all, :id, :name, include_blank: true %>
     <br>
+        <h3>Or create a new list:</h3>
         <%= f.fields_for :list, List.new do |l| %> <br>
-            <h3>Or create a new list:</h3>
                 <%= l.label :Name %>
                 <%= l.text_field :name %>
         <% end %>
     <br>
     <br>
-    <%= f.label :Gift_Name %> <br>
-    <%= f.text_field :name %> <br>
-    <%= f.label :Store %> <br>
-    <%= f.text_field :store %> <br>
-    <%= f.label :Price %> <br>
-    <%= f.text_field :price %> <br>
-    <%= f.label :Comment %> <br>
-    <%= f.text_area :comment %>
+        <%= f.label :Gift_Name %> <br>
+        <%= f.text_field :name %> <br>
+        <%= f.label :Store %> <br>
+        <%= f.text_field :store %> <br>
+        <%= f.label :Price %> <br>
+        <%= f.text_field :price %> <br>
+        <%= f.label :Comment %> <br>
+        <%= f.text_area :comment %>
 
     <% else %>
-    <%= f.hidden_field :list_id %>
+        <%= f.hidden_field :list_id  %>
     <%end%>
     <br>
     <%= f.submit @gift.persisted? ? "Update Gift" : "Add Gift" %>
