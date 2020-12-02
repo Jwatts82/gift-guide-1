@@ -1,14 +1,23 @@
-<nav>
-    <ul>
-        <li><%= link_to 'Home', root_path %></li>
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <a class="navbar-brand" href="/">Home</a>
+    <div class="navbar-nav">
+        <div class="form-inline">
         <% if !user_signed_in?%>
-            <li><%= link_to 'Signup', new_user_registration_path %></li>
-            <li><%= link_to 'Login', new_user_session_path %></li>
-        <% else%>
-            <li> <%= link_to 'logout', destroy_user_session_path, method: 'delete' %></li>
-            <li><%= current_user.username %></li>
-        <% end %>
-    </ul>
+            <a class="nav-link active" href="/signup">Signup </a>>
+            <a class="nav-link" href="/login">Login</a>
+        <% else %>
+            <a class="nav-item nav-link" href="/"> Welcome, <%= current_user.username %>  </a>
+            <%= button_to "Logout", destroy_user_session_path, method: "delete" %><br>
 
+        <% end%>
 
+        </div>
+    </div>
 </nav>
+
+
+
+
+
+
+
