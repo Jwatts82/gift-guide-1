@@ -13,5 +13,5 @@ Rails.application.routes.draw do
   end
 
   resources :gifts
-  resources :lists
+  
 end

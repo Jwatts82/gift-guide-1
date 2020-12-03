@@ -6,5 +6,6 @@ class Gift < ApplicationRecord
 
     validates :name, presence: true
     validates :store, presence: true
-
+    validates :price, presence: true
+    
 end

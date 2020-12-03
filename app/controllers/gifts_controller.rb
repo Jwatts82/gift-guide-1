@@ -59,6 +59,7 @@ class GiftsController < ApplicationController
             :price,
             :comment,
             :list_id,
+            :search,
             list_attributes: [
                 :name
             ]
