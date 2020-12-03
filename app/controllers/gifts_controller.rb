@@ -6,6 +6,10 @@ class GiftsController < ApplicationController
         @gifts = current_user.gifts
     end
 
+    def search
+        @gifts = current_user.gifts.search_gifts
+    end
+    
     def new
         @gift = current_user.gifts.new(list_id: params[:list_id])
         #binding.pry
