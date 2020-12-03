@@ -3,13 +3,14 @@ class GiftsController < ApplicationController
     before_action :set_gift, only: [:show, :edit, :update, :destroy]
 
     def index
-        @gifts = current_user.gifts
+        #binding.pry
+        if params[:q]
+            @gifts = current_user.gifts.search_gifts(params[:q])
+        else
+            @gifts = current_user.gifts
+        end
     end
 
-    def search
-        @gifts = current_user.gifts.search_gifts
-    end
-    
     def new
         @gift = current_user.gifts.new(list_id: params[:list_id])
         #binding.pry
@@ -63,7 +64,6 @@ class GiftsController < ApplicationController
             :price,
             :comment,
             :list_id,
-            :search,
             list_attributes: [
                 :name
             ]

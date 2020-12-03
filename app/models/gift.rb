@@ -1,6 +1,6 @@
 class Gift < ApplicationRecord
     
-    scope :search_gifts, -> { where("name LIKE ?", "%" + params[:q] + "%") }
+    scope :search_gifts, -> (giftname) { where("name LIKE ?", "%#{giftname}%") }
    
     belongs_to :user
     belongs_to :list

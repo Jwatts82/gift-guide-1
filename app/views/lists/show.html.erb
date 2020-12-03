@@ -5,7 +5,6 @@
     <thead>
         <tr>
             <th> Gift </th>
-            <th> Purchase Complete </th>
         </tr>
     </thead>
 
@@ -13,7 +12,6 @@
         <% @list.gifts.each do |g| %>
             <tr>
                 <td><%= link_to g.name, list_gift_path(@list, g) %></td>
-                <td><%= check_box("tag", tag.id) %></td>
             </tr>
         <% end %>
     </tbody>
