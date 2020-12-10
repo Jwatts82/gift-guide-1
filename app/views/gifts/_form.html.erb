@@ -1,13 +1,7 @@
 <%= form_for gift do|f| %>
     <div class="mx-auto" style="width: 400px;">
         <% if gift.list_id.nil? %>
-            <div class= "form-group">
-            <h3>Choose An Existing List:</h3>
-            <%= f.collection_select :list_id, current_user.lists, :id, :name, include_blank: true, class: "form-control" %>
-            </div>
-    <br>
-            <h3>Or</h3>
-    <br>
+        
             <h3>Create a New List:</h3>
     
         <%= f.fields_for :list, gift.build_list do |l| %> <br>
