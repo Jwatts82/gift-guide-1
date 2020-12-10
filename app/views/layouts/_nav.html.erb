@@ -15,9 +15,10 @@
                 <%end%>
             </div>
             </li>
-            <a class="nav-item nav-link" href="/gifts/new"> Create a New Gift List</a>
-            <a class="nav-item nav-link" href="/gifts"> All Gifts</a>
-            
+            <%= link_to 'Create a New Gift List', new_gift_path %>
+            <%= link_to 'All Gifts', gifts_path %>
+
+
             <%= link_to "Logout", destroy_user_session_path, method: "delete", class: "nav-item nav-link" %><br>
         <% end%>
         </div>

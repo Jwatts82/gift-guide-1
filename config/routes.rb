@@ -3,6 +3,8 @@ Rails.application.routes.draw do
   
   root to: 'application#welcome'
 
+  get 'gifts/cheapest', to: 'gifts#cheap'
+
   devise_scope :user do
     get 'login', to: 'devise/sessions#new', as: 'login'
     get 'signup', to: 'devise/registrations#new', as: 'signup' 
